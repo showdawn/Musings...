@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adobe Inc. (ADBE) Investment Analysis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (max-width: 768px) {
+            .chart-container {
+                height: 300px;
+            }
+        }
+        .kpi-card {
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .kpi-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+        .kpi-value {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #0052cc;
+        }
+        .kpi-label {
+            font-size: 1rem;
+            color: #4A5568;
+            margin-top: 0.5rem;
+        }
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: #172b4d;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: #4A5568;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem auto;
+        }
+        .card {
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            padding: 1.5rem;
+            height: 100%;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+<header class="bg-gradient-to-r from-[#0052cc] to-[#003f99] text-white text-center py-12 px-4">
+    <h1 class="text-4xl md:text-5xl font-black tracking-tight">Adobe Inc. (ADBE)</h1>
+    <p class="mt-4 text-xl md:text-2xl font-light">An In-Depth Visual Investment Analysis</p>
+</header>
+
+<main class="container mx-auto p-4 md:p-8">
+
+    <section id="thesis" class="my-12">
+        <h2 class="section-title">Investment Thesis: A GARP Opportunity</h2>
+        <p class="section-subtitle">Despite elite financials, Adobe's stock has underperformed, creating a compelling "Growth at a Reasonable Price" (GARP) scenario. The market has overly penalized the stock for perceived AI threats, underappreciating its defensive moat and clear monetization strategy.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="kpi-card border-l-4 border-[#0052cc]">
+                <div class="kpi-value">BUY</div>
+                <div class="kpi-label">Investment Recommendation</div>
+            </div>
+            <div class="kpi-card border-l-4 border-[#2684ff]">
+                <div class="kpi-value">$485.00</div>
+                <div class="kpi-label">12-Month Price Target</div>
+            </div>
+            <div class="kpi-card border-l-4 border-[#4c9aff]">
+                <div class="kpi-value">>30%</div>
+                <div class="kpi-label">Potential Upside</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="financials" class="my-16">
+        <h2 class="section-title">Exceptional Financial Health</h2>
+        <p class="section-subtitle">Adobe's financials reveal a story of consistent growth, elite profitability, and powerful cash generation, forming the bedrock of its investment appeal.</p>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div class="card">
+                <h3 class="font-bold text-xl mb-2 text-[#172b4d]">Consistent Revenue Growth</h3>
+                <p class="text-gray-600 mb-4">Adobe has a proven track record of expanding its top line, driven by the strength of its subscription-based model. Revenue has steadily climbed over the past three fiscal years.</p>
+                <div class="chart-container">
+                    <canvas id="revenueChart"></canvas>
+                </div>
+            </div>
+            <div class="card">
+                <h3 class="font-bold text-xl mb-2 text-[#172b4d]">Fortress-Like Profitability</h3>
+                <p class="text-gray-600 mb-4">With gross margins consistently near 90%, Adobe demonstrates incredible pricing power and operational efficiency. This translates to robust operating income and free cash flow.</p>
+                <div class="chart-container">
+                    <canvas id="profitabilityChart"></canvas>
+                </div>
+            </div>
+            <div class="card lg:col-span-2">
+                <h3 class="font-bold text-xl mb-2 text-[#172b4d]">Business Segment Breakdown (Q2 FY2025)</h3>
+                <p class="text-gray-600 mb-4">The Digital Media segment, featuring Creative Cloud and Document Cloud, remains the core revenue driver, complemented by the growing enterprise-focused Digital Experience segment.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="chart-container h-80">
+                        <canvas id="segmentRevenueChart"></canvas>
+                    </div>
+                    <div class="chart-container h-80">
+                        <canvas id="segmentGrowthChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="valuation" class="my-16">
+        <h2 class="section-title">Valuation: A Compelling Discount</h2>
+        <p class="section-subtitle">Adobe trades at a significant valuation discount to its large-cap software peers. This disconnect presents the core opportunity: a potential re-rating as the market recognizes its durable growth and AI strategy.</p>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div class="card">
+                <h3 class="font-bold text-xl mb-2 text-[#172b4d]">P/E Ratio vs. Peers (TTM)</h3>
+                <p class="text-gray-600 mb-4">Adobe's Price-to-Earnings ratio is substantially lower than its competitors, reflecting market skepticism that appears disconnected from its fundamental strength.</p>
+                <div class="chart-container">
+                    <canvas id="peRatioChart"></canvas>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-6">
+                <div class="kpi-card">
+                    <div class="kpi-value">~24x</div>
+                    <div class="kpi-label">Adobe P/E Ratio (TTM)</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-value">~17x</div>
+                    <div class="kpi-label">Price/Free Cash Flow</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-value">52%</div>
+                    <div class="kpi-label">Return on Equity (ROE)</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-value">38%</div>
+                    <div class="kpi-label">Return on Invested Capital</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ai-strategy" class="my-16">
+        <h2 class="section-title">The AI Catalyst: Monetizing Firefly</h2>
+        <p class="section-subtitle">Artificial Intelligence is not just a defense but a major growth offensive. Adobe's strategy is to deeply integrate its "commercially safe" Firefly AI into the workflows millions of professionals already use daily.</p>
+        <div class="card lg:col-span-2">
+            <h3 class="font-bold text-xl mb-4 text-center text-[#172b4d]">Adobe's AI Monetization Flow</h3>
+            <div class="flex flex-col md:flex-row justify-around items-center text-center p-4 space-y-8 md:space-y-0 md:space-x-4">
+                <div class="flex flex-col items-center">
+                    <div class="w-24 h-24 bg-[#e6f0ff] rounded-full flex items-center justify-center text-4xl text-[#0052cc] mb-3">1</div>
+                    <h4 class="font-bold text-lg">Integrate Firefly AI</h4>
+                    <p class="text-gray-600 max-w-xs">Embed generative AI tools directly into Photoshop, Premiere Pro, Acrobat, etc.</p>
+                </div>
+                <div class="text-3xl text-[#4c9aff] hidden md:block">&rarr;</div>
+                <div class="text-3xl text-[#4c9aff] md:hidden">&darr;</div>
+                <div class="flex flex-col items-center">
+                    <div class="w-24 h-24 bg-[#e6f0ff] rounded-full flex items-center justify-center text-4xl text-[#0052cc] mb-3">2</div>
+                    <h4 class="font-bold text-lg">Drive Adoption</h4>
+                    <p class="text-gray-600 max-w-xs">Leverage existing user base and workflows for frictionless adoption. Over 24B assets generated to date.</p>
+                </div>
+                <div class="text-3xl text-[#4c9aff] hidden md:block">&rarr;</div>
+                <div class="text-3xl text-[#4c9aff] md:hidden">&darr;</div>
+                <div class="flex flex-col items-center">
+                    <div class="w-24 h-24 bg-[#e6f0ff] rounded-full flex items-center justify-center text-4xl text-[#0052cc] mb-3">3</div>
+                    <h4 class="font-bold text-lg">Monetize</h4>
+                    <p class="text-gray-600 max-w-xs">Utilize credit-based systems for individuals and enhanced enterprise plans (GenStudio) to drive new recurring revenue.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="competition" class="my-16">
+        <h2 class="section-title">Competitive Moat & Key Risks</h2>
+        <p class="section-subtitle">Adobe's dominance is protected by a wide economic moat, but it faces significant competition from nimble challengers and must execute its AI strategy flawlessly.</p>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="card">
+                <h3 class="font-bold text-xl mb-4 text-[#172b4d]">Sources of the Economic Moat</h3>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="text-green-500 text-2xl mr-3">&#10003;</span>
+                        <div><strong class="text-gray-800">High Switching Costs:</strong> Deeply embedded workflows and user expertise make changing platforms costly and disruptive for professionals.</div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 text-2xl mr-3">&#10003;</span>
+                        <div><strong class="text-gray-800">Network Effects:</strong> The creative industry runs on Adobe file formats (.PSD, .AI, .PDF), creating a powerful standard for collaboration.</div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 text-2xl mr-3">&#10003;</span>
+                        <div><strong class="text-gray-800">Intangible Assets:</strong> Iconic brands like "Photoshop" and "Acrobat" are synonymous with their categories, providing immense brand equity.</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3 class="font-bold text-xl mb-4 text-[#172b4d]">Primary Risks to Thesis</h3>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="text-red-500 text-2xl mr-3">&#9888;</span>
+                        <div><strong class="text-gray-800">Competitive Threat (Figma):</strong> A well-funded, independent Figma presents a direct challenge in the core UI/UX design space.</div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-red-500 text-2xl mr-3">&#9888;</span>
+                        <div><strong class="text-gray-800">AI Execution:</strong> The investment case hinges on the successful monetization of Firefly. Failure to do so would prevent growth re-acceleration.</div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-red-500 text-2xl mr-3">&#9888;</span>
+                        <div><strong class="text-gray-800">Growth Deceleration:</strong> If growth slows more than anticipated, the stock's premium valuation could contract further.</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="text-center p-6 bg-gray-800 text-gray-400 text-sm">
+    <p>Disclaimer: This is a financial analysis based on publicly available data and should not be considered investment advice. All data is for informational purposes only. Consult with a qualified financial advisor before making any investment decisions.</p>
+    <p class="mt-2">Data sourced from Adobe's public financial statements and market data as of late July 2025.</p>
+</footer>
+
+<script>
+    const brilliantBlues = {
+        primary: '#0052cc',
+        secondary: '#2684ff',
+        accent1: '#4c9aff',
+        accent2: '#b3d4ff',
+        neutral: '#dfe1e6',
+        textDark: '#172b4d'
+    };
+
+    function wrapLabel(str, maxLen) {
+        if (str.length <= maxLen) {
+            return str;
+        }
+        const words = str.split(' ');
+        let currentLine = '';
+        const lines = [];
+        for (const word of words) {
+            if ((currentLine + word).length > maxLen && currentLine.length > 0) {
+                lines.push(currentLine.trim());
+                currentLine = '';
+            }
+            currentLine += word + ' ';
+        }
+        lines.push(currentLine.trim());
+        return lines;
+    }
+
+    const defaultTooltipCallback = {
+        plugins: {
+            tooltip: {
+                callbacks: {
+                    title: function(tooltipItems) {
+                        const item = tooltipItems[0];
+                        let label = item.chart.data.labels[item.dataIndex];
+                        if (Array.isArray(label)) {
+                            return label.join(' ');
+                        }
+                        return label;
+                    }
+                }
+            },
+            legend: {
+                position: 'bottom',
+            },
+        }
+    };
+
+    new Chart(document.getElementById('revenueChart'), {
+        type: 'bar',
+        data: {
+            labels: ['FY 2021', 'FY 2022', 'FY 2023'],
+            datasets: [{
+                label: 'Total Revenue ($B)',
+                data: [15.79, 17.61, 19.41],
+                backgroundColor: brilliantBlues.primary,
+                borderColor: brilliantBlues.primary,
+                borderWidth: 1
+            }]
+        },
+        options: {
+            ...defaultTooltipCallback,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        callback: function(value) {
+                            return '$' + value + 'B';
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    new Chart(document.getElementById('profitabilityChart'), {
+        type: 'line',
+        data: {
+            labels: ['FY 2021', 'FY 2022', 'FY 2023'],
+            datasets: [{
+                label: 'Gross Margin',
+                data: [88.2, 87.7, 87.9],
+                borderColor: brilliantBlues.primary,
+                backgroundColor: 'rgba(0, 82, 204, 0.1)',
+                fill: true,
+                tension: 0.3
+            }, {
+                label: 'Operating Margin',
+                data: [36.8, 34.6, 34.3],
+                borderColor: brilliantBlues.accent1,
+                backgroundColor: 'rgba(76, 154, 255, 0.1)',
+                fill: true,
+                tension: 0.3
+            }]
+        },
+        options: {
+            ...defaultTooltipCallback,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    ticks: {
+                        callback: function(value) {
+                            return value + '%';
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    new Chart(document.getElementById('segmentRevenueChart'), {
+        type: 'doughnut',
+        data: {
+            labels: ['Digital Media', 'Digital Experience'],
+            datasets: [{
+                label: 'Revenue by Segment ($B)',
+                data: [4.35, 1.46],
+                backgroundColor: [brilliantBlues.primary, brilliantBlues.accent1],
+                hoverOffset: 4
+            }]
+        },
+        options: {
+            ...defaultTooltipCallback,
+            maintainAspectRatio: false,
+            plugins: {
+                ...defaultTooltipCallback.plugins,
+                title: {
+                    display: true,
+                    text: 'Revenue by Segment (Q2 FY25)',
+                    font: { size: 16 }
+                }
+            }
+        }
+    });
+
+    new Chart(document.getElementById('segmentGrowthChart'), {
+        type: 'bar',
+        data: {
+            labels: [wrapLabel('Digital Media', 16), wrapLabel('Digital Experience', 16)],
+            datasets: [{
+                label: 'YoY Growth',
+                data: [11, 10],
+                backgroundColor: [brilliantBlues.secondary, brilliantBlues.accent2],
+                barPercentage: 0.6
+            }]
+        },
+        options: {
+            ...defaultTooltipCallback,
+            indexAxis: 'y',
+            maintainAspectRatio: false,
+            scales: {
+                x: {
+                    ticks: {
+                        callback: function(value) {
+                            return value + '%';
+                        }
+                    }
+                }
+            },
+            plugins: {
+                ...defaultTooltipCallback.plugins,
+                title: {
+                    display: true,
+                    text: 'Segment YoY Growth (Q2 FY25)',
+                    font: { size: 16 }
+                },
+                legend: {
+                    display: false
+                }
+            }
+        }
+    });
+
+    new Chart(document.getElementById('peRatioChart'), {
+        type: 'bar',
+        data: {
+            labels: ['Adobe', 'Salesforce', 'Microsoft', 'Oracle'],
+            datasets: [{
+                label: 'P/E Ratio (TTM)',
+                data: [23.7, 33.0, 39.4, 50.1],
+                backgroundColor: [brilliantBlues.primary, brilliantBlues.accent1, brilliantBlues.accent1, brilliantBlues.accent1],
+                borderColor: brilliantBlues.primary,
+                borderWidth: 1
+            }]
+        },
+        options: {
+            ...defaultTooltipCallback,
+            maintainAspectRatio: false,
+            plugins: {
+                ...defaultTooltipCallback.plugins,
+                legend: {
+                    display: false
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>
